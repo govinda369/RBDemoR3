@@ -10,6 +10,8 @@ type cbx_1 from checkbox within tabpage_1
 end type
 type uo_search from u_searchbox within tabpage_1
 end type
+type cb_1 from commandbutton within tabpage_1
+end type
 type cb_add from u_button within u_address
 end type
 type cb_delete from u_button within u_address
@@ -350,6 +352,7 @@ dw_filter dw_filter
 cb_retrieve cb_retrieve
 cbx_1 cbx_1
 uo_search uo_search
+cb_1 cb_1
 end type
 
 on tabpage_1.create
@@ -357,6 +360,7 @@ this.dw_filter=create dw_filter
 this.cb_retrieve=create cb_retrieve
 this.cbx_1=create cbx_1
 this.uo_search=create uo_search
+this.cb_1=create cb_1
 int iCurrent
 call super::create
 iCurrent=UpperBound(this.Control)
@@ -364,6 +368,7 @@ this.Control[iCurrent+1]=this.dw_filter
 this.Control[iCurrent+2]=this.cb_retrieve
 this.Control[iCurrent+3]=this.cbx_1
 this.Control[iCurrent+4]=this.uo_search
+this.Control[iCurrent+5]=this.cb_1
 end on
 
 on tabpage_1.destroy
@@ -372,6 +377,7 @@ destroy(this.dw_filter)
 destroy(this.cb_retrieve)
 destroy(this.cbx_1)
 destroy(this.uo_search)
+destroy(this.cb_1)
 end on
 
 type dw_browser from u_tab_base`dw_browser within tabpage_1
@@ -529,6 +535,22 @@ end event
 event ue_search;call super::ue_search;iuo_parent.Event ue_filter()
 
 end event
+
+type cb_1 from commandbutton within tabpage_1
+integer x = 2807
+integer y = 172
+integer width = 457
+integer height = 132
+integer taborder = 50
+boolean bringtotop = true
+integer textsize = -12
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "QA Branch"
+end type
 
 type cb_add from u_button within u_address
 integer x = 2784
